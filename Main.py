@@ -12,28 +12,24 @@ class mainGenre:
         genreKey=['awe','action','dark','sad','romance','general']
         for c in genreKey:
             if baseGenre in genreLink[c]:
-                print(c)
+                #print(c)
                 return c
         return None
 
-
 def main():
     obj=mainGenre()
-    p = xml.parsers.expat.ParserCreate()
-    p.StartElementHandler = obj.start
-    p.CharacterDataHandler = obj.popularity
-    p.Parse(obj.stringofxml)
-    obj.sort()
-    genresList=["drama","love","datshit"]#link to genres list from api
+    genresList=["datshit"]#link to genres list from api
     genre=None
     for c in genresList:
-        genre=obj.getGenreLink(c)#Put genre you get from api
+        genre=obj.getGenreLink(c)
         if(genre!=None):
             break
         if(genre==None):
-            genre=general
-    print(obj.genre)
-    print (obj.number) 
+            genre='general'
+    #Goes through list to assign main genre.
+    #print (genre)
+    #print(obj.genre)
+    #print (obj.number) 
 
 if __name__ == "__main__":
     main()
