@@ -1,5 +1,6 @@
 import requests
 import string
+from flask_bootstrap import Bootstrap
 
 class mainGenre:
     def getGenreLink(self,baseGenre):
@@ -26,7 +27,7 @@ class mainGenre:
                 return c
         return None
 
-title = raw_input("What are you reading? ")
+#title = raw_input("What are you reading? ")
 
 def searchForBook(title): #takes in user input, returns id for best match
     result = ""
@@ -45,7 +46,7 @@ def searchForBook(title): #takes in user input, returns id for best match
     return result
     
     
-def getGenres(): #given ID, returns XML containing genres for book
+def getGenres(title): #given ID, returns XML containing genres for book
     genres = []
     payload = {'format':'xml', 'key':'NsvXiH6QA7O1q3SvBLtvA', 'id':searchForBook(title), 'text_only':'False'}
     r = requests.get("https://www.goodreads.com/book/show/", params=payload)
@@ -55,23 +56,24 @@ def getGenres(): #given ID, returns XML containing genres for book
             genres.append(line.split('"')[1])
     return genres
 
-def main():
+def main(title):
     obj=mainGenre()
-    genresList=getGenres()#link to genres list from api
-    musician=None
+
+    genresList=getGenres(title)#link to genres list from api
+    genre=None
     for c in genresList:
-        musician=obj.getGenreLink(c)
-        if(musician!=None):
+        genre=obj.getGenreLink(c)
+        if(genre!=None):
             break
-        if(musician==None):
-            genre='general'
+        if(genre==None):
+            genre='Beethoven'
     #print(genresList)
     #Goes through list to assign main genre.
     #print (genre)
     #print(obj.genre)
     #print (obj.number) 
-    print(musician)
-    return musician
+    print(genre)
+    return genre
 
 if __name__ == "__main__":
     main()
