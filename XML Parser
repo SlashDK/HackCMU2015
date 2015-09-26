@@ -1,0 +1,49 @@
+import xml.parsers.expat
+class mainGenre:
+    stringofxml = """<aspect name="Genre">
+    <valueHistogram valueName="Action Adventure">
+    <count>14</count>
+    </valueHistogram>
+    <valueHistogram valueName="Drama">
+    <count>2</count>
+    </valueHistogram>
+    <valueHistogram valueName="Foreign Language">
+    <count>11</count>
+    </valueHistogram>
+    <valueHistogram valueName="Sci-Fi  Fantasy">
+    <count>15</count>
+    </valueHistogram>
+    <valueHistogram valueName="Not Specified">
+    <count>47</count>
+    </valueHistogram>
+    </aspect>"""
+    count = 0
+    genre=[]
+    number=[]
+    def start(self,name, attr):
+        if(name == 'valueHistogram'):
+            self.genre.append(attr['valueName'])
+
+    def popularity(self,name):
+        if(name.isdigit()):
+            self.number.append(repr(int(name)))
+
+    def sort(self):
+        self.number=map(int,self.number)
+        self.number2=sorted(self.number)
+
+
+def main():
+    obj=mainGenre()
+    p = xml.parsers.expat.ParserCreate()
+    p.StartElementHandler = obj.start
+
+    p.CharacterDataHandler = obj.popularity
+    p.Parse(obj.stringofxml)
+    obj.sort()
+    print(obj.genre)
+    print (obj.number2) 
+
+if __name__ == "__main__":
+    main()
+        
