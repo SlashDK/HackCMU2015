@@ -60,6 +60,7 @@ def main(title):
     obj=mainGenre()
 
     genresList=getGenres(title)#link to genres list from api
+
     genre=None
     for c in genresList:
         genre=obj.getGenreLink(c)
