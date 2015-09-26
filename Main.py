@@ -58,12 +58,9 @@ def getGenres(title): #given ID, returns XML containing genres for book
 
 def main(title):
     obj=mainGenre()
-<<<<<<< HEAD
-    genresList=getGenres()#link to genres list from api
-=======
 
     genresList=getGenres(title)#link to genres list from api
->>>>>>> PorgyTurtle/master
+
     genre=None
     for c in genresList:
         genre=obj.getGenreLink(c)
