@@ -14,9 +14,7 @@ class mainGenre:
 }
         genreKey=['awe','action','dark','sad','romance','general']
         for c in genreKey:
-            if baseGenre in genreLink[c]:
-                #print(c)
-                return c
+            if baseGenre in genreLink[c]: return c
         return None
 
 title = raw_input("What are you reading? ")
@@ -56,13 +54,8 @@ def main():
         genre=obj.getGenreLink(c)
         if(genre!=None):
             break
-        if(genre==None):
-            genre='general'
-    print(genresList)
+        genre='general'
     #Goes through list to assign main genre.
-    #print (genre)
-    #print(obj.genre)
-    #print (obj.number) 
     print(genre)
 
 if __name__ == "__main__":
