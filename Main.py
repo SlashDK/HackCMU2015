@@ -32,8 +32,8 @@ def main():
             break
         if(genre==None):
             genre=general
-    #print(obj.genre)
-    #print (obj.number) 
+    print(obj.genre)
+    print (obj.number) 
 
 if __name__ == "__main__":
     main()
