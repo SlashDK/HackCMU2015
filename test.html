@@ -18,10 +18,11 @@
 
 	<script>
 		var artist_data = "",
-			artist_id = "";
+			artist_id = "",
+			artist_name = "Heifetz"
 
 	    document.getElementById("go").addEventListener("click", function() {
-	    	$.ajax({url:'http://ws.spotify.com/search/1/artist.json?q=Lady Gaga',
+	    	$.ajax({url:'http://ws.spotify.com/search/1/artist.json?q=' + artist_name,
 	    		success: function(data) {
 	    			artist_data = data["artists"][0]["href"];
 	    			artist_list = artist_data.split(":");
