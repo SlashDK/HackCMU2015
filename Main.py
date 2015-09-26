@@ -72,7 +72,6 @@ def main(title):
     #print (genre)
     #print(obj.genre)
     #print (obj.number) 
-    print(genre)
     return genre
 
 if __name__ == "__main__":

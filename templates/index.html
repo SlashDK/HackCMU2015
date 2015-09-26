@@ -9,8 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sleep Required</title>
-
+    <title>Immerse</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
     <!-- Bootstrap Core CSS -->
     <link href="{{ url_for('static', filename="css/bootstrap.min.css") }}" rel="stylesheet">
     <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
@@ -58,6 +59,9 @@
                     <li>
                         <a class="page-scroll" href="#about">It Works</a>
                     </li>
+                     <li>
+                        <a class="page-scroll" href="#downloads">Right here</a>
+                    </li>
                     
                 </ul>
             </div>
@@ -88,6 +92,9 @@
                     <li>
                         <a class="page-scroll" href="#about">It Works</a>
                     </li>
+                    <li>
+                        <a class="page-scroll" href="#downloads">Right here</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -117,6 +124,9 @@
                     <li>
                         <a class="page-scroll" href="#about">It Works</a>
                     </li>
+                    <li>
+                        <a class="page-scroll" href="#downloads">Right here</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -130,8 +140,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">Whatever Works</h1>
-                        <p class="intro-text">Too Sleep Deprived to Think of a Name<br>Created by Team Lel</p>
+                        <h1 class="brand-heading">Immerse</h1>
+                        <p class="intro-text">A generic catchy byline<br>Created by Team Without A Cool Name</p>
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
@@ -142,22 +152,58 @@
     </header>
 
     <!-- About Section -->
-     <section id="about" class="container content-section text-center" bgcolor="blue">
+     <section id="about" class="container content-section text-center" >
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Read Book, Want Music?</h2>
-                <p>Ever found yourself reading that boring ECE book that you just can't get through? The answer's simple, add some background music.</p>
-                <p><form action="{{ url_for('index') }}" method="post">
+                <p>Ever found yourself reading that boring history book that you just can't get through? The answer's simple, add some background music.</p>
+                <p><form style="color: black" action="{{ url_for('index') }}" method="post">
             <input type="text" name="book" />
-        </form><br><br></p>
+        </form></p>
             </div>
         </div>
     </section>
 
+    <section id="downloads" class="container content-section text-center">
+        <div class="container">
+        <h1>Your Music</h1>
+        <div id="results"></div>
+        <iframe id="music" src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A2rp5riHULWgrXPsDtsp1ir" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+        <br><br>
+    </div>
+
+    <script>
+        album_uri = "spotify:album:61xHE9mlaQK7Pn02Qr3Scy";
+    if({{form}}=="Hans Zimmer")
+        album_uri = "spotify:album:61xHE9mlaQK7Pn02Qr3Scy";
+    else if({{form}}=="Steve Jablonsky")
+        album_uri="spotify:album:1TA5Qdd6dgt9vGw9JZqJDF"
+    else if({{form}}=="Eluvium")
+        album_uri="spotify:album:4BMYwbOZd1i9vraiSXtSkg"
+    else if({{form}}=="John Williams")
+        album_uri="spotify:album:7n26GKaWGJ1sx9CXKISyyE"
+    else if({{form}}=="Kenny G")
+        album_uri="spotify:album:5ie513eFL7o8i9kesVzoNW"
+    else if({{form}}=="Beethoven")
+        album_uri="spotify:album:5zhKcnv4IvJXZ8oj3TyYCH"
+    
+        music_src = "https://embed.spotify.com/?uri=" + album_uri;
+        document.getElementById("music").setAttribute("src",music_src);     
+        
+        
+
+        
+                    
+                    
+    </script>
+        </div>
+    </section>
+
+
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; Spiderman 2099</p>
+            <p>Copyright &copy; Team Without A Cool Name 2015</p>
         </div>
     </footer>
 
