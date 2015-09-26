@@ -3,16 +3,23 @@ import string
 
 class mainGenre:
     def getGenreLink(self,baseGenre):
+        #awe = Hans Zimmer
+        #action = Steve Jablonsky
+        #dark = Gyorgy Ligeti
+        #sad = Eluvium
+        #sci-fi = John Williams
+        #romance = Kenny G
+        #general = Beethoven
         genreLink={
-'awe':['feminism','historical','biblical','fantasy', 'christian','inspirational', 'surreal', 'religion', 'theology'],
-'action':['action','adventure', 'war', 'survival'],
-'dark':['dark', 'death','witchcraft','occult', 'dark-fantasy', 'horror'],
-'sad':[ 'disability','anthologies'],
-'sci-fi':['science-fiction', 'sci-fi','space', 'sci-fi-fantasy'], 
-'romance':['gender',  'holiday',  'love','relationships', 'romantic', 'social', 'womens'],
-'general':['animals', 'diary', 'management', 'medical', 'textbooks', 'wildlife','drama']
+'Hans Zimmer':['feminism','historical','biblical','fantasy', 'christian','inspirational', 'surreal', 'religion', 'theology'],
+'Steve Jablonsky':['action','adventure', 'war', 'survival'],
+'Gyorgy Ligeti':['dark', 'death','witchcraft','occult', 'dark-fantasy', 'horror'],
+'Eluvium':[ 'disability','anthologies'],
+'John Williams':['science-fiction', 'sci-fi','space', 'sci-fi-fantasy'], 
+'Kenny G':['gender',  'holiday',  'love','relationships', 'romantic', 'social', 'womens', 'fifty-shades'],
+'Beethoven':['animals', 'diary', 'management', 'medical', 'textbooks', 'wildlife','drama']
 }
-        genreKey=['awe','action','dark','sad','romance','general']
+        genreKey=['Hans Zimmer','Steve Jablonsky','Gyorgy Ligeti','Eluvium','John Williams','Kenny G', 'Beethoven']
         for c in genreKey:
             if baseGenre in genreLink[c]:
                 #print(c)
@@ -51,19 +58,20 @@ def getGenres(): #given ID, returns XML containing genres for book
 def main():
     obj=mainGenre()
     genresList=getGenres()#link to genres list from api
-    genre=None
+    musician=None
     for c in genresList:
-        genre=obj.getGenreLink(c)
-        if(genre!=None):
+        musician=obj.getGenreLink(c)
+        if(musician!=None):
             break
-        if(genre==None):
+        if(musician==None):
             genre='general'
-    print(genresList)
+    #print(genresList)
     #Goes through list to assign main genre.
     #print (genre)
     #print(obj.genre)
     #print (obj.number) 
-    print(genre)
+    print(musician)
+    return musician
 
 if __name__ == "__main__":
     main()
