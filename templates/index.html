@@ -168,34 +168,11 @@
         <div class="container">
         <h1>Your Music</h1>
         <div id="results"></div>
-        <iframe id="music" src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A2rp5riHULWgrXPsDtsp1ir" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+        
         <br><br>
     </div>
 
-    <script>
-        album_uri = "spotify:album:61xHE9mlaQK7Pn02Qr3Scy";
-    if({{form}}=="Hans Zimmer")
-        album_uri = "spotify:album:61xHE9mlaQK7Pn02Qr3Scy";
-    else if({{form}}=="Steve Jablonsky")
-        album_uri="spotify:album:1TA5Qdd6dgt9vGw9JZqJDF"
-    else if({{form}}=="Eluvium")
-        album_uri="spotify:album:4BMYwbOZd1i9vraiSXtSkg"
-    else if({{form}}=="John Williams")
-        album_uri="spotify:album:7n26GKaWGJ1sx9CXKISyyE"
-    else if({{form}}=="Kenny G")
-        album_uri="spotify:album:5ie513eFL7o8i9kesVzoNW"
-    else if({{form}}=="Beethoven")
-        album_uri="spotify:album:5zhKcnv4IvJXZ8oj3TyYCH"
-    
-        music_src = "https://embed.spotify.com/?uri=" + album_uri;
-        document.getElementById("music").setAttribute("src",music_src);     
-        
-        
-
-        
-                    
-                    
-    </script>
+    <iframe id="music" src="https://embed.spotify.com/?uri={{form}}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
         </div>
     </section>
 
