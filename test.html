@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<meta charset="utf-8">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="icon" href="data:;base64,=">
+	
+</head>
+<body>
+	<div class="container">
+		<h1>Testing the Spotify API</h1>
+		<button type="button" id="go">Click</button>
+		<div id="results"></div>
+		<iframe id="music" src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A2rp5riHULWgrXPsDtsp1ir" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+	</div>
+
+	<script>
+		var artist_data = "",
+			artist_id = "";
+
+	    document.getElementById("go").addEventListener("click", function() {
+	    	$.ajax({url:'http://ws.spotify.com/search/1/artist.json?q=Lady Gaga',
+	    		success: function(data) {
+	    			artist_data = data["artists"][0]["href"];
+	    			artist_list = artist_data.split(":");
+	    			artist_id = artist_list[2];
+	    			setAlbum(artist_id);
+	    		}
+	    	});
+	    });
+
+	    var setAlbum = function(artist_id) {
+	    	$.ajax({
+	    		url: 'https://api.spotify.com/v1/artists/'+artist_id+'/albums',
+	    		success: function(data) {
+	    			album_uri = data["items"][0]["uri"];
+	    			music_src = "https://embed.spotify.com/?uri=" + album_uri;
+	    			document.getElementById("music").setAttribute("src",music_src);		
+	    		}
+	    	})
+	    }
+	    			
+	    			
+	</script>
+</body>
+</html>
