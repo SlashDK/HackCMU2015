@@ -58,20 +58,20 @@ def getGenres(): #given ID, returns XML containing genres for book
 def main():
     obj=mainGenre()
     genresList=getGenres()#link to genres list from api
-    musician=None
+    genre=None
     for c in genresList:
-        musician=obj.getGenreLink(c)
-        if(musician!=None):
+        genre=obj.getGenreLink(c)
+        if(genre!=None):
             break
-        if(musician==None):
-            genre='general'
+        if(genre==None):
+            genre='Beethoven'
     #print(genresList)
     #Goes through list to assign main genre.
     #print (genre)
     #print(obj.genre)
     #print (obj.number) 
-    print(musician)
-    return musician
+    print(genre)
+    return genre
 
 if __name__ == "__main__":
     main()
